@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;csv&apos; to &apos;ejercicios&apos;&#x0A;- Original project: &apos;AccesoAFicheros&apos;&#x0A;- Original element: &apos;AccesoAFicheros/src/csv&apos;&#x0A;- Renamed element: &apos;AccesoAFicheros/src/ejercicios&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;csv&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;csv" name="ejercicios" qualified="false" references="true" stamp="1539687272448" textual="false" version="1.0"/>
+</session>

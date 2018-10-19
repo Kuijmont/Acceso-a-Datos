@@ -1,0 +1,10 @@
+package ej5;
+
+public class PrincipalB {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

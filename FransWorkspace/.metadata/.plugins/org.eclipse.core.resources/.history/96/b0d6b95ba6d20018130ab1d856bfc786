@@ -1,0 +1,53 @@
+package ej5;
+
+import java.io.BufferedReader;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class PrincipalB {
+
+	public static void main(String[] args) throws IOException {
+
+		File ruta = new File("/media/Datos/2DAM/AccesoADatos/Personas.txt");
+		BufferedReader bfr = new BufferedReader(new FileReader(ruta));
+		String linea;
+		while((linea=bfr.readLine())!=null) {
+			System.out.println(linea);
+		}
+		System.out.println("===================================================");
+		bfr.close();
+		
+		ruta = new File("/media/Datos/2DAM/AccesoADatos/Personas.bin");
+		DataInputStream dis = new DataInputStream(new FileInputStream(ruta));
+		System.out.println(dis.readInt());
+		 
+        //Leemos una cadena y lo mostramos
+        System.out.println(dis.readUTF());
+
+        //Leemos un numero y lo mostramos
+        System.out.println(dis.readChar());
+        System.out.println(dis.readInt());
+        
+        //Leemos una cadena y lo mostramos
+        System.out.println(dis.readUTF());
+
+        //Leemos un numero y lo mostramos
+        System.out.println(dis.readChar());
+System.out.println(dis.readInt());
+        
+        //Leemos una cadena y lo mostramos
+        System.out.println(dis.readUTF());
+
+        //Leemos un numero y lo mostramos
+        System.out.println(dis.readChar());
+		dis.close();
+		
+		
+	}
+
+}
