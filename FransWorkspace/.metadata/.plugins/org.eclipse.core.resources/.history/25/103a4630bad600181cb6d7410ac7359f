@@ -1,0 +1,13 @@
+package ej2;
+
+public class VerLineaLibro {
+
+	public static void main(String[] args) {
+
+		System.out.print("Introduzca título: "); 
+		titulo=Entrada.
+		Introduzca línea: 2 
+		
+	}
+
+}

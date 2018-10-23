@@ -1,0 +1,16 @@
+package ej2;
+
+import comun.Entrada;
+
+public class VerLineaLibro {
+
+	public static void main(String[] args) {
+
+		System.out.print("Introduzca título: "); 
+		String titulo = Entrada.cadena();
+		System.out.print("Introduzca línea: ");
+		int linea = Entrada.entero();
+		
+	}
+
+}

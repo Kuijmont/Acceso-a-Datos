@@ -1,0 +1,44 @@
+package ej2;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import comun.Entrada;
+
+public class VerLineaLibro extends DefaultHandler{
+
+	public static void main(String[] args) {
+
+		System.out.print("Introduzca título: "); 
+		String titulo = Entrada.cadena();
+		System.out.print("Introduzca línea: ");
+		String linea = Entrada.cadena();
+		
+		
+		
+	}
+
+	public void startElement(String uri, String localName, String name,
+			Attributes attributes) throws SAXException {
+		System.out.println("\nComienzo etiqueta:" + localName);
+
+		// Recorremos los atributos
+		System.out.println("\t" + attributes.getLength()
+				+ " atributos...");
+		for (int i = 0; i < attributes.getLength(); i++) {
+			System.out.println("\t\tNombre: " + attributes.getLocalName(i));
+			System.out.println("\t\tValor: " + attributes.getValue(i));
+		}
+
+		// También podemos obtener los atributos por nombre
+		String valorId = attributes.getValue("id");
+		if (valorId != null) {
+			System.out.println("\tId: " + valorId);
+		}
+
+	}
+	
+}
+
+
