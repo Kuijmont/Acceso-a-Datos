@@ -19,33 +19,26 @@ import comun.Entrada;
 public class VerLineaLibro{
 	public static void main(String[] args){
 		try {
-			boolean tituloExiste = false;
-			do {
-				System.out.print("Introduzca título: ");
-				String titulo = Entrada.cadena();
-				
-				String ruta = "/home/alumno/biblioteca";
-	
-				ArrayList<String> al = sacarRutas(ruta);
-				ArrayList<String> nombre = new ArrayList<String>();
-				String file, rut = null;
-				for (int i = 0; i < al.size(); i++) {
-					rut = al.get(i).toString();
-					file = rut.substring(rut.lastIndexOf('/') + 1);
-					nombre.add(file);
-				}
-				for (int i = 0; i < nombre.size(); i++) {
-					if(nombre.get(i).equals(titulo))
-						tituloExiste = true;
-				}
-			}while(!tituloExiste);
+			System.out.print("Introduzca título: ");
+			String titulo = Entrada.cadena();
 			
-			
+			String ruta = "/home/alumno/biblioteca";
+
+			ArrayList<String> al = sacarRutas(ruta);
+			ArrayList<String> nombre = new ArrayList<String>();
+			String file, rut = null;
+			for (int i = 0; i < al.size(); i++) {
+				rut = al.get(i).toString();
+				file = rut.substring(rut.lastIndexOf('/') + 1);
+				nombre.add(file);
+			}
+			for (int i = 0; i < nombre.size(); i++) {
+				if(nombre.get(i).equals(titulo))
+					System.out.println("SI.");
+			}
 			System.out.print("Introduzca línea: ");
 			int linea = Entrada.entero();
 			
-			
-
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 			Document doc = docBuilder.parse(new InputSource(new FileInputStream("indice.xml"))); //Crea erbol DOM a partir de archivo XML	

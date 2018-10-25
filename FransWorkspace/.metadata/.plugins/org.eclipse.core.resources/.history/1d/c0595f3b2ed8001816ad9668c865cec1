@@ -44,8 +44,6 @@ public class VerLineaLibro{
 			System.out.print("Introduzca línea: ");
 			int linea = Entrada.entero();
 			
-			
-
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 			Document doc = docBuilder.parse(new InputSource(new FileInputStream("indice.xml"))); //Crea erbol DOM a partir de archivo XML	
