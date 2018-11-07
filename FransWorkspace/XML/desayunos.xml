@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<menu_desayunos>
+   <desayuno id="1">
+      <nombre>Belgian Waffles</nombre>
+      <precio moneda="euro">5.95</precio>
+      <descripcion>Two of our famous Belgian Waffles with plenty of real maple syrup</descripcion>
+      <calorias>650</calorias>
+   </desayuno>
+   <desayuno id="2">
+      <nombre>Strawberry Belgian Waffles</nombre>
+      <precio moneda="libra esterlina">7.95</precio>
+      <descripcion>Light Belgian Waffles covered with plenty of real maple syrup</descripcion>
+      <calorias>650</calorias>
+   </desayuno>
+</biblioteca>
