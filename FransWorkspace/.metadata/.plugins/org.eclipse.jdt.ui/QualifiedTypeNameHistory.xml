@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.JFileChooser"/>
-<fullyQualifiedTypeName name="javax.swing.JButton"/>
 <fullyQualifiedTypeName name="javax.naming.ldap.Rdn"/>
 <fullyQualifiedTypeName name="ejercicioProfe.BuscarPorTamanioGUI"/>
 <fullyQualifiedTypeName name="ejercicioProfe.Utilidades"/>
@@ -59,4 +57,7 @@
 <fullyQualifiedTypeName name="com.thoughtworks.xstream.XStream"/>
 <fullyQualifiedTypeName name="com.thoughtworks.xstream.io.xml.DomDriver"/>
 <fullyQualifiedTypeName name="org.xml.sax.Attributes"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
 </qualifiedTypeNameHistroy>
