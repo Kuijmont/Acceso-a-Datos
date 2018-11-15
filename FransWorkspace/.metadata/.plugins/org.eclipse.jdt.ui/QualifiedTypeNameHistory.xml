@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.naming.ldap.Rdn"/>
-<fullyQualifiedTypeName name="ejercicioProfe.BuscarPorTamanioGUI"/>
-<fullyQualifiedTypeName name="ejercicioProfe.Utilidades"/>
-<fullyQualifiedTypeName name="javax.xml.stream.util.EventReaderDelegate"/>
 <fullyQualifiedTypeName name="ejercicioUnoB.Entrada"/>
 <fullyQualifiedTypeName name="ejercicioUno.Ejercicio1"/>
 <fullyQualifiedTypeName name="ejercicioUno.Utilidades"/>
@@ -17,7 +13,6 @@
 <fullyQualifiedTypeName name="java.nio.Buffer"/>
 <fullyQualifiedTypeName name="java.io.PrintWriter"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="ej5.Persona"/>
 <fullyQualifiedTypeName name="java.io.DataOutputStream"/>
 <fullyQualifiedTypeName name="java.io.OutputStream"/>
@@ -30,7 +25,6 @@
 <fullyQualifiedTypeName name="java.io.InputStream"/>
 <fullyQualifiedTypeName name="java.io.EOFException"/>
 <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.swing.text.Document"/>
 <fullyQualifiedTypeName name="java.io.RandomAccessFile"/>
 <fullyQualifiedTypeName name="java.io.DataInputStream"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="ej1.Persistencia"/>
+<fullyQualifiedTypeName name="ej1.PersistenciaBD"/>
+<fullyQualifiedTypeName name="javax.naming.ldap.Rdn"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="ej1.Persona"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
