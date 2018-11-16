@@ -222,6 +222,10 @@ public class InterfazUsuarioGUI extends JFrame {
 		btnGuardar.setEnabled(true);
 		btnBorrar.setEnabled(true);
 		btnConsulta.setEnabled(true);
+		textFieldPais.setText(null);
+		textFieldEmail.setText(null);
+		textFieldCP.setText(null);
+		textFieldNombre.setText(null);
 		
 	}
 
@@ -241,6 +245,10 @@ public class InterfazUsuarioGUI extends JFrame {
 		btnGuardar.setEnabled(false);
 		btnBorrar.setEnabled(false);
 		btnConsulta.setEnabled(false);
+		textFieldPais.setText(null);
+		textFieldEmail.setText(null);
+		textFieldCP.setText(null);
+		textFieldNombre.setText(null);
 	}
 
 	protected void conectar() throws Exception {

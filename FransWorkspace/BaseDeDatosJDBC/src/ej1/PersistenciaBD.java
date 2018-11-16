@@ -42,23 +42,12 @@ public class PersistenciaBD implements Persistencia{
 	@Override
 	public void guardarPersona(String tabla, Persona p) throws Exception {
 		
-		try {
-			st = cn.createStatement();
-			String sql = "INSERT INTO "+tabla+" VALUES("+p.getNombre()+","+p.getCP()+","+p.getPais()+","+p.getEmail()+")";
-			st.executeUpdate(sql);
-			JOptionPane.showMessageDialog(null,"Persona insertada correctamente.","Mensaje", 1);
-			st.close(); // Cierra el statement
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    try {
-			cn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		st = cn.createStatement();
+		String sql = "INSERT INTO "+tabla+" VALUES('"+p.getNombre()+"','"+p.getCP()+"','"+p.getPais()+"','"+p.getEmail()+"')";
+		st.executeUpdate(sql);
+		JOptionPane.showMessageDialog(null,"Persona insertada correctamente.","Mensaje", 1);
+		st.close(); // Cierra el statement
+  	
 	}
 	@Override
 	public void borrarPersona(String tabla, Persona p) throws Exception {
