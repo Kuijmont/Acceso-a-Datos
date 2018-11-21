@@ -12,7 +12,7 @@ public interface Persistencia {
 
 	void guardarPersona(String tabla, Persona p) throws Exception;// inserta o actualiza
 	
-	void borrarPersona(String tabla, Persona p) throws Exception;
+	void borrarPersona(String tabla, String email) throws Exception;
 
 	Persona consultarPersona(String tabla, String email) throws Exception;
 

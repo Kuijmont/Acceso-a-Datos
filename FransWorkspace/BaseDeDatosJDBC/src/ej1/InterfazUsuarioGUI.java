@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 import javax.naming.ldap.Rdn;
@@ -27,7 +28,6 @@ public class InterfazUsuarioGUI extends JFrame {
 	private JRadioButton rdbtnEmail;
 	private Persistencia p = new PersistenciaBD();
 	private JButton btnDesconectar;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private JTextField textFieldNombre;
 	private JTextField textFieldCP;
 	private JTextField textFieldPais;
@@ -42,6 +42,8 @@ public class InterfazUsuarioGUI extends JFrame {
 	private JButton btnBorrar;
 	private JButton btnGuardar;
 	private String tabla, IP, usu, pass, bd;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private ArrayList<Persona> pers; 
 
 	/**
 	 * Launch the application.
@@ -77,38 +79,43 @@ public class InterfazUsuarioGUI extends JFrame {
 		contentPane.add(lblListadoOrdenadoPor);
 		
 		btnListar = new JButton("Listado");
+		btnListar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pers = p.listadoPersonas(tabla, buttonGroup.getSelection().toString());
+			}
+		});
 		btnListar.setEnabled(false);
 		btnListar.setBounds(283, 12, 117, 25);
 		contentPane.add(btnListar);
 		
 		rdbtnDefecto = new JRadioButton("Por Defecto");
+		buttonGroup.add(rdbtnDefecto);
 		rdbtnDefecto.setEnabled(false);
 		rdbtnDefecto.setSelected(true);
-		buttonGroup.add(rdbtnDefecto);
 		rdbtnDefecto.setBounds(22, 72, 124, 23);
 		contentPane.add(rdbtnDefecto);
 		
 		rdbtnCp = new JRadioButton("Por CP");
-		rdbtnCp.setEnabled(false);
 		buttonGroup.add(rdbtnCp);
+		rdbtnCp.setEnabled(false);
 		rdbtnCp.setBounds(21, 99, 149, 23);
 		contentPane.add(rdbtnCp);
 		
 		rdbtnEmail = new JRadioButton("Por Email");
-		rdbtnEmail.setEnabled(false);
 		buttonGroup.add(rdbtnEmail);
+		rdbtnEmail.setEnabled(false);
 		rdbtnEmail.setBounds(22, 126, 149, 23);
 		contentPane.add(rdbtnEmail);
 		
 		rdbtnNombre = new JRadioButton("Por Nombre");
-		rdbtnNombre.setEnabled(false);
 		buttonGroup.add(rdbtnNombre);
+		rdbtnNombre.setEnabled(false);
 		rdbtnNombre.setBounds(22, 153, 149, 23);
 		contentPane.add(rdbtnNombre);
 		
 		rdbtnPais = new JRadioButton("Por País");
-		rdbtnPais.setEnabled(false);
 		buttonGroup.add(rdbtnPais);
+		rdbtnPais.setEnabled(false);
 		rdbtnPais.setBounds(22, 180, 149, 23);
 		contentPane.add(rdbtnPais);
 		
@@ -185,6 +192,7 @@ public class InterfazUsuarioGUI extends JFrame {
 				Persona persona = new Persona(textFieldNombre.getText(), textFieldCP.getText(), textFieldPais.getText(), textFieldEmail.getText());
 				try {
 					p.guardarPersona(tabla, persona);
+					estado2();
 				} catch (Exception e) {
 					System.out.println(e.getMessage());
 				}
@@ -195,11 +203,35 @@ public class InterfazUsuarioGUI extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		btnBorrar = new JButton("Borrar");
+		btnBorrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					p.borrarPersona(tabla, textFieldEmail.getText());
+					estado2();
+				} catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+			}
+		});
 		btnBorrar.setEnabled(false);
 		btnBorrar.setBounds(151, 227, 117, 25);
 		contentPane.add(btnBorrar);
 		
 		btnConsulta = new JButton("Consulta");
+		btnConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Persona pers;
+					pers = p.consultarPersona(tabla, textFieldEmail.getText());
+					textFieldNombre.setText(pers.getNombre());
+					textFieldCP.setText(pers.getCP());
+					textFieldEmail.setText(pers.getEmail());
+					textFieldPais.setText(pers.getPais());
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+			}
+		});
 		btnConsulta.setEnabled(false);
 		btnConsulta.setBounds(283, 227, 117, 25);
 		contentPane.add(btnConsulta);
