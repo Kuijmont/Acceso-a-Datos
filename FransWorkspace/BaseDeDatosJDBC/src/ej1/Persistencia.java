@@ -1,5 +1,6 @@
 package ej1;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface Persistencia {

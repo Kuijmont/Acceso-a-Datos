@@ -1,6 +1,12 @@
 package ej1;
 
 public class Persona {
+	
+	@Override
+	public String toString() {
+		return "Persona [Nombre=" + nombre + ", CP=" + CP + ", País=" + pais + ", Email=" + email + "]";
+	}
+
 	String nombre;
 	String CP;
 	String pais;

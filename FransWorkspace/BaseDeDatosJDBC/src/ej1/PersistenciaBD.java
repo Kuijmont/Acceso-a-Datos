@@ -14,7 +14,6 @@ public class PersistenciaBD implements Persistencia{
 	static Connection cn;
 	static Statement st;
 	static ResultSet result;
-	private ArrayList<Persona> p; 
 	@Override
 	public void conectarDB(String IP, String usu, String pass, String bd){
 		
@@ -36,14 +35,15 @@ public class PersistenciaBD implements Persistencia{
 		}
 	}
 	@Override
-	public ArrayList<Persona> listadoPersonas(String tabla, String orderBy) {
+	public ArrayList<Persona> listadoPersonas(String tabla, String orderBy){
+			try {
+				st = cn.createStatement();
+			} catch (SQLException e1) {
+				System.out.println(e1.getMessage());
+			}
 		
-		try {
-			st = cn.createStatement();
-		} catch (SQLException e1) {
-			System.out.println(e1.getMessage());
-		}
 		String sql = "select * FROM "+tabla+" order by "+orderBy;
+		ArrayList<Persona> p = new ArrayList<Persona>(); 
 		Persona pers = null;
 		try {
 			result = st.executeQuery(sql);

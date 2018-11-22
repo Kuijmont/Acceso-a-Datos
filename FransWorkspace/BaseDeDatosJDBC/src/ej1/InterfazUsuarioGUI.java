@@ -21,6 +21,10 @@ import java.awt.event.ActionEvent;
 import javax.naming.ldap.Rdn;
 import javax.swing.ButtonGroup;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JScrollBar;
 
 public class InterfazUsuarioGUI extends JFrame {
 
@@ -44,6 +48,8 @@ public class InterfazUsuarioGUI extends JFrame {
 	private String tabla, IP, usu, pass, bd;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private ArrayList<Persona> pers; 
+	private JTextArea textArea;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -68,7 +74,7 @@ public class InterfazUsuarioGUI extends JFrame {
 	 */
 	public InterfazUsuarioGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 444, 305);
+		setBounds(100, 100, 444, 432);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -81,7 +87,26 @@ public class InterfazUsuarioGUI extends JFrame {
 		btnListar = new JButton("Listado");
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pers = p.listadoPersonas(tabla, buttonGroup.getSelection().toString());
+				textArea.setText("");
+				String nombre = "nombre";
+				String cp = "cp";
+				String pais = "pais";
+				String email = "email";
+				if(rdbtnDefecto.isSelected())
+					pers = p.listadoPersonas(tabla, nombre);
+				else if(rdbtnNombre.isSelected())
+					pers = p.listadoPersonas(tabla, nombre);
+				else if(rdbtnCp.isSelected())
+					pers = p.listadoPersonas(tabla, cp);
+				else if(rdbtnPais.isSelected())
+					pers = p.listadoPersonas(tabla, pais);
+				else if(rdbtnEmail.isSelected())
+					pers = p.listadoPersonas(tabla, email);
+				
+				for (int i = 0; i < pers.size(); i++) {
+					textArea.setText(textArea.getText()+pers.get(i).toString()+"\n");
+				}
+			
 			}
 		});
 		btnListar.setEnabled(false);
@@ -235,6 +260,15 @@ public class InterfazUsuarioGUI extends JFrame {
 		btnConsulta.setEnabled(false);
 		btnConsulta.setBounds(283, 227, 117, 25);
 		contentPane.add(btnConsulta);
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 282, 392, 112);
+		contentPane.add(scrollPane);
+		
+		textArea = new JTextArea();
+		scrollPane.setViewportView(textArea);
+		
+
 	}
 	
 	
