@@ -4,4 +4,7 @@
 		id="org.eclipse.wb.swing.containers javax.swing.JPanel"
 		category="org.eclipse.wb.swing.containers"
 		nextEntry="org.eclipse.wb.swing.containers javax.swing.JTabbedPane"/>
+	<moveCategory
+		id="org.eclipse.wb.swing.layouts"
+		nextCategory="org.eclipse.wb.swing.layouts"/>
 </commands>

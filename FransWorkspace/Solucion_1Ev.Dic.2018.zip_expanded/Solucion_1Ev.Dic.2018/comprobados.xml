@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<comprobados sorteo="navidad2018">
+   <numeros>
+      <numero premio="SI" valor="85804">
+         <descripcion>El Gordo</descripcion>
+         <cantidad>4000000</cantidad>
+      </numero>
+      <numero premio="SI" valor="10534">
+         <descripcion>Quinto Premio</descripcion>
+         <cantidad>60000</cantidad>
+      </numero>
+      <numero premio="NO" valor="1"/>
+      <numero premio="NO" valor="1731"/>
+      <numero premio="SI" valor="731">
+         <descripcion>Pedrea</descripcion>
+         <cantidad>1000</cantidad>
+      </numero>
+   </numeros>
+</comprobados>

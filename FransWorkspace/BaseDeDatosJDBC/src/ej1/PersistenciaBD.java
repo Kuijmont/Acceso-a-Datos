@@ -16,7 +16,11 @@ public class PersistenciaBD implements Persistencia{
 	static ResultSet result;
 	@Override
 	public void conectarDB(String IP, String usu, String pass, String bd){
-		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			System.out.println(e1.getMessage());
+		}
 		try {
 			cn = DriverManager.getConnection("jdbc:mysql://"+IP+"/"+bd, usu, pass);
 			JOptionPane.showMessageDialog(null,"Se ha conectado correctamente.","Mensaje", 1);

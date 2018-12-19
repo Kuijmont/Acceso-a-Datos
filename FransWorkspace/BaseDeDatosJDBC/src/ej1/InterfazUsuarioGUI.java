@@ -318,7 +318,7 @@ public class InterfazUsuarioGUI extends JFrame {
 	}
 
 	protected void conectar() throws Exception {
-		BufferedReader bfr = new BufferedReader(new FileReader(new File("CFG.INI")));
+		BufferedReader bfr = new BufferedReader(new FileReader(new File("src/ej1/CFG.INI")));
 			tabla = bfr.readLine();
 			bd = bfr.readLine();
 			IP = bfr.readLine();
