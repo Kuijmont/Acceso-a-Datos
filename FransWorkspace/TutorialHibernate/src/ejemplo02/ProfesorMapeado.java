@@ -1,4 +1,4 @@
-package ejemplo01;
+package ejemplo02;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Profesor")
+@Table(name = "profesor")
 public class ProfesorMapeado implements Serializable {
 
 	@Id
