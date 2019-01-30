@@ -23,6 +23,10 @@ public class Cuenta implements java.io.Serializable {
 		this.movimientos = movimientos;
 	}
 
+	public Cuenta(int saldo2) {
+		this.saldo = saldo2;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
