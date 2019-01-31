@@ -1,5 +1,5 @@
 package tablas;
-// Generated 29-ene-2019 13:48:18 by Hibernate Tools 4.0.1.Final
+// Generated 31-ene-2019 8:56:52 by Hibernate Tools 4.0.1.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -15,24 +15,31 @@ public class Partido implements java.io.Serializable {
 	private Equipo equipoByIdVisitante;
 	private Competicion competicion;
 	private Date fechaHora;
+	private int golesLocal;
+	private int golesVisitante;
 	private Set estadisticas = new HashSet(0);
 
 	public Partido() {
 	}
 
-	public Partido(Equipo equipoByIdLocal, Equipo equipoByIdVisitante, Competicion competicion, Date fechaHora) {
+	public Partido(Equipo equipoByIdLocal, Equipo equipoByIdVisitante, Competicion competicion, Date fechaHora,
+			int golesLocal, int golesVisitante) {
 		this.equipoByIdLocal = equipoByIdLocal;
 		this.equipoByIdVisitante = equipoByIdVisitante;
 		this.competicion = competicion;
 		this.fechaHora = fechaHora;
+		this.golesLocal = golesLocal;
+		this.golesVisitante = golesVisitante;
 	}
 
 	public Partido(Equipo equipoByIdLocal, Equipo equipoByIdVisitante, Competicion competicion, Date fechaHora,
-			Set estadisticas) {
+			int golesLocal, int golesVisitante, Set estadisticas) {
 		this.equipoByIdLocal = equipoByIdLocal;
 		this.equipoByIdVisitante = equipoByIdVisitante;
 		this.competicion = competicion;
 		this.fechaHora = fechaHora;
+		this.golesLocal = golesLocal;
+		this.golesVisitante = golesVisitante;
 		this.estadisticas = estadisticas;
 	}
 
@@ -74,6 +81,22 @@ public class Partido implements java.io.Serializable {
 
 	public void setFechaHora(Date fechaHora) {
 		this.fechaHora = fechaHora;
+	}
+
+	public int getGolesLocal() {
+		return this.golesLocal;
+	}
+
+	public void setGolesLocal(int golesLocal) {
+		this.golesLocal = golesLocal;
+	}
+
+	public int getGolesVisitante() {
+		return this.golesVisitante;
+	}
+
+	public void setGolesVisitante(int golesVisitante) {
+		this.golesVisitante = golesVisitante;
 	}
 
 	public Set getEstadisticas() {

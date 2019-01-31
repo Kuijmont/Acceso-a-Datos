@@ -1,5 +1,5 @@
 package tablas;
-// Generated 29-ene-2019 13:48:18 by Hibernate Tools 4.0.1.Final
+// Generated 31-ene-2019 8:56:52 by Hibernate Tools 4.0.1.Final
 
 import java.util.Date;
 import java.util.HashSet;

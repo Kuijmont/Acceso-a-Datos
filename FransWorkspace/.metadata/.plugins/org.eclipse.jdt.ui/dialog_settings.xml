@@ -81,6 +81,8 @@
 		<item value="false" key="FinalModifier"/>
 		<item value="10" key="LimitValue"/>
 	</section>
+	<section name="RenameInformationPopup">
+	</section>
 	<section name="ClasspathContainerSelectionPage">
 		<item value="2" key="index"/>
 	</section>

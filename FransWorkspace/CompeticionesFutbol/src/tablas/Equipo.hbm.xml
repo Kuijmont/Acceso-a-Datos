@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-ene-2019 13:48:19 by Hibernate Tools 4.0.1.Final -->
+<!-- Generated 31-ene-2019 8:56:52 by Hibernate Tools 4.0.1.Final -->
 <hibernate-mapping>
-    <class name="competicion.Equipo" table="equipo" catalog="competicionesFutbol">
+    <class name="tablas.Equipo" table="equipo" catalog="competicionesFutbol">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
@@ -15,19 +15,19 @@
             <key>
                 <column name="idEquipo" not-null="true" />
             </key>
-            <one-to-many class="competicion.Jugador" />
+            <one-to-many class="tablas.Jugador" />
         </set>
         <set name="partidosForIdVisitante" table="partido" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idVisitante" not-null="true" />
             </key>
-            <one-to-many class="competicion.Partido" />
+            <one-to-many class="tablas.Partido" />
         </set>
         <set name="partidosForIdLocal" table="partido" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="idLocal" not-null="true" />
             </key>
-            <one-to-many class="competicion.Partido" />
+            <one-to-many class="tablas.Partido" />
         </set>
     </class>
 </hibernate-mapping>

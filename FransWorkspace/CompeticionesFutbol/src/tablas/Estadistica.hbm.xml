@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-ene-2019 13:48:19 by Hibernate Tools 4.0.1.Final -->
+<!-- Generated 31-ene-2019 8:56:52 by Hibernate Tools 4.0.1.Final -->
 <hibernate-mapping>
-    <class name="competicion.Estadistica" table="estadistica" catalog="competicionesFutbol">
-        <composite-id name="id" class="competicion.EstadisticaId">
+    <class name="tablas.Estadistica" table="estadistica" catalog="competicionesFutbol">
+        <composite-id name="id" class="tablas.EstadisticaId">
             <key-property name="idPartido" type="int">
                 <column name="idPartido" />
             </key-property>
@@ -12,10 +12,10 @@
                 <column name="licencia" />
             </key-property>
         </composite-id>
-        <many-to-one name="jugador" class="competicion.Jugador" update="false" insert="false" fetch="select">
+        <many-to-one name="jugador" class="tablas.Jugador" update="false" insert="false" fetch="select">
             <column name="licencia" not-null="true" />
         </many-to-one>
-        <many-to-one name="partido" class="competicion.Partido" update="false" insert="false" fetch="select">
+        <many-to-one name="partido" class="tablas.Partido" update="false" insert="false" fetch="select">
             <column name="idPartido" not-null="true" />
         </many-to-one>
         <property name="goles" type="int">
