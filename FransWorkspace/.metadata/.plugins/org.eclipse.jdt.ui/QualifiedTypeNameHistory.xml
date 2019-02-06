@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
-<fullyQualifiedTypeName name="javax.swing.text.Document"/>
-<fullyQualifiedTypeName name="java.io.RandomAccessFile"/>
 <fullyQualifiedTypeName name="java.io.DataInputStream"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="ej2.VerLineaLibro"/>
@@ -33,7 +30,6 @@
 <fullyQualifiedTypeName name="ej1.Persistencia"/>
 <fullyQualifiedTypeName name="ej1.PersistenciaBD"/>
 <fullyQualifiedTypeName name="javax.naming.ldap.Rdn"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="org.hibernate.mapping.Set"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="competicion.Persistencia"/>
+<fullyQualifiedTypeName name="tablas.Equipo"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="javax.management.remote.NotificationResult"/>
 </qualifiedTypeNameHistroy>

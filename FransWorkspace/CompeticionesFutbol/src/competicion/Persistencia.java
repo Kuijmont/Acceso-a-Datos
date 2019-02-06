@@ -1,21 +1,17 @@
 package competicion;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
 
 public interface Persistencia {
 
-	void conectBD(String IP, String user, String pass, String bd);
+	void conectBD();
 
 	void desconectBD();
-
-	/*ArrayList<> list(String tabla, String orderBy);
-
-	void save(String tabla) throws Exception;
 	
-	void delete(String tabla) throws Exception;
-	
-	void modify(String tabla) throws Exception;
+	void toRegister(String table) throws SQLException;
 
-	void query(String tabla) throws Exception;
-	 */
+	void toModify(String table) throws SQLException;
+
+	void toCancel(String table) throws SQLException;
+
 }

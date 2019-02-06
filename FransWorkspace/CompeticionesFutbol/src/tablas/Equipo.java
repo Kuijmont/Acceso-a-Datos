@@ -9,8 +9,8 @@ import java.util.Set;
  */
 public class Equipo implements java.io.Serializable {
 
-	private Integer id;
-	private String nombre;
+	private  Integer id;
+	private  String nombre;
 	private Set jugadors = new HashSet(0);
 	private Set partidosForIdVisitante = new HashSet(0);
 	private Set partidosForIdLocal = new HashSet(0);
