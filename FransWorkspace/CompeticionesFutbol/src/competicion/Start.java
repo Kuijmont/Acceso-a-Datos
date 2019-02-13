@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Properties;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,8 +27,8 @@ import java.awt.event.ActionEvent;
 public class Start extends JFrame {
 
 	private JPanel contentPane;
-	private static String persistenceType, IP, user, pass, bd, cfg;
-	private static Persistencia per;
+	private static String persistenceType, server, user, password, database, cfg;
+	public static Persistencia per;
 	private static String op;
 	
 	/**
@@ -38,39 +40,30 @@ public class Start extends JFrame {
 				try {
 					Start frame = new Start();
 					frame.setVisible(true);
-					// Read CFG.INI
-					BufferedReader bfr = new BufferedReader(new FileReader(new File("src/utilidades/CFG.INI")));
-					// Catch the type of persistence
-					persistenceType = bfr.readLine().substring(17);
-					// Read an Option
-					bfr.readLine();
-					// Catch the IP
-					IP = bfr.readLine().substring(9);
-					// Catch the Database
-					bd = bfr.readLine().substring(10);
-					// Catch the User
-					user = bfr.readLine().substring(8);
-					// Catch the Password
-					pass = bfr.readLine().substring(9);
-					// Read an Option
-					bfr.readLine();
-					// Catch the cfg for hibernate
-					cfg = bfr.readLine().substring(11);
-					bfr.close();
+				
+					Properties prop=new Properties();
+					prop.load(new InputStreamReader(Start.class.getResourceAsStream("CFG.INI")));//CFG.INI en el mismo paquete que PrincipalGUI
+					persistenceType=prop.getProperty("tipoPersistencia");
+
 					System.out.println(persistenceType);
 					//Leemos CFG.INI
 					switch (persistenceType){
 					   case "mysqlJDBC":
-					      per=new PersistenciaMySQL(IP, user, pass, bd);
+						  server = prop.getProperty("mysqlJDBC.servidor");
+						  database = prop.getProperty("mysqlJDBC.basedatos");
+						  user = prop.getProperty("mysqlJDBC.usuario");
+						  password = prop.getProperty("mysqlJDBC.password");
+						  per=new PersistenciaMySQL(server,user,password,database);
+					      //per=new PersistenciaMySQL(IP, user, pass, bd);
 					      break;
 					   case "hibernate": 
-					      per=new PersistenciaHibernate();
+					      per=new PersistenciaHibernate(prop.getProperty("hibernate.archivoCFG"));
 					      break;
 					   default: 
 						   JOptionPane.showMessageDialog(null, "Se ha producido un error en la selección de servidor.", "Error", 0);
 					   }
 					per.conectBD();
-					per.toRegister(op);
+					
 				} catch (Exception e) {
 					e.getMessage();
 				}
@@ -101,6 +94,8 @@ public class Start extends JFrame {
 		itemTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				op = "Equipo";
+				Equipos ven = new Equipos();
+				ven.setVisible(true);  
 			}
 		});
 		menuMaintenance.add(itemTeam);
