@@ -46,18 +46,18 @@
 <fullyQualifiedTypeName name="org.hibernate.mapping.Set"/>
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="javax.management.remote.NotificationResult"/>
 <fullyQualifiedTypeName name="tablas.Posicion"/>
 <fullyQualifiedTypeName name="tablas.Competicion"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
-<fullyQualifiedTypeName name="competicion.Persistencia"/>
 <fullyQualifiedTypeName name="competicion.PersistenciaMySQL"/>
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="competicion.Equipos"/>
-<fullyQualifiedTypeName name="tablas.Equipo"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
-<fullyQualifiedTypeName name="competicion.Start"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="competicion.Persistencia"/>
+<fullyQualifiedTypeName name="competicion.Start"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="tablas.Equipo"/>
 </qualifiedTypeNameHistroy>

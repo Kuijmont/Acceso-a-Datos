@@ -15,7 +15,7 @@ public interface Persistencia {
 
 	void desconectBD();
 	
-	void toRegisterATeam(String table, Equipo team) throws SQLException;
+	void toRegisterATeam(Equipo team) throws SQLException;
 
 	void toModify(String table, Equipo team, Posicion position, Competicion competition) throws SQLException;
 
@@ -25,4 +25,9 @@ public interface Persistencia {
 
 	void notifyError(JFrame padre, String titulo, Exception e, String mensaje);
 
+	boolean toSelectATeam(String nombre) throws SQLException;
+
+	boolean confirmQuestion(JFrame padre, String titulo, String mensaje);
+
+	void infoMessage(JFrame padre, String title, String message);
 }

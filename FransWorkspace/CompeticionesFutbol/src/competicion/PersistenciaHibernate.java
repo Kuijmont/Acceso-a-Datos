@@ -41,7 +41,7 @@ public class PersistenciaHibernate implements Persistencia{
 	}
 
 	@Override
-	public void toRegisterATeam(String table, Equipo team) throws SQLException {
+	public void toRegisterATeam(Equipo team) throws SQLException {
 		// TODO Auto-generated method stub
 		
 	}
@@ -54,6 +54,25 @@ public class PersistenciaHibernate implements Persistencia{
 
 	@Override
 	public void notifyError(JFrame padre, String titulo, Exception e, String mensaje) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean toSelectATeam(String nombre) throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean confirmQuestion(JFrame padre, String titulo, String mensaje) {
+		return false;
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void infoMessage(JFrame padre, String title, String message) {
 		// TODO Auto-generated method stub
 		
 	}

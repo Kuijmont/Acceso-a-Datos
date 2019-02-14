@@ -49,7 +49,7 @@ public class PersistenciaMySQL implements Persistencia {
 
 	}
 
-	// Desconect database
+	// Disconnect database
 	@Override
 	public void desconectBD() {
 		try {
@@ -63,13 +63,13 @@ public class PersistenciaMySQL implements Persistencia {
 	
 	// Register a Team
 	@Override
-	public void toRegisterATeam(String table, Equipo team)throws SQLException {
+	public void toRegisterATeam(Equipo team)throws SQLException {
 		st = cn.createStatement();
 		// Insert a Team
-		sql = "INSERT INTO "+table+" VALUES("+team.getId()+",'"+team.getNombre()+"')";
+		sql = "INSERT INTO equipo VALUES("+team.getId()+",'"+team.getNombre()+"')";
 		try {
 			st.executeUpdate(sql);
-			JOptionPane.showMessageDialog(null,"El equipo "+team.getNombre()+" se ha creado correctamente.","Mensaje", 1);
+			infoMessage(null, "Mensaje", "El equipo "+team.getNombre()+" se ha creado correctamente.");
 			st.close(); // Close the statement
 		} catch (SQLException e) {
 			notifyError(null, "ERROR", e, "Error en la creación.");
@@ -162,7 +162,39 @@ public class PersistenciaMySQL implements Persistencia {
 		JOptionPane.showMessageDialog(padre, contenido, titulo, JOptionPane.ERROR_MESSAGE);
 	}
 	
+	// To see if there is a team with this name
+	@Override
+	public boolean toSelectATeam(String nombre) throws SQLException {
+		st = cn.createStatement();
+		// Select all Team
+		sql = "SELECT * from equipo where nombre='"+nombre+"'";
+		result = st.executeQuery(sql);
+		if(result.next()) {
+ 			st.close();// Close the statement
+			return true;
+ 		}else {
+ 			st.close();// Close the statement
+ 			return false;
+ 		}
+	}
+
+	// To Confirm a Question
+	@Override
+	public boolean confirmQuestion(JFrame padre, String titulo, String mensaje) {
+		int confirmado = JOptionPane.showConfirmDialog(padre, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+		if (JOptionPane.OK_OPTION == confirmado)
+			return true;
+		else
+			return false;
+	}
+
 	
 	
+	@Override
+	public void infoMessage(JFrame padre, String title, String message) {
+		JOptionPane.showMessageDialog(padre, message, title, 1);
+		
+	}
+
 	
 }
