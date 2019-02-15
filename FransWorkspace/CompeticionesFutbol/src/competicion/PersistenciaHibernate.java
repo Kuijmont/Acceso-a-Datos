@@ -28,17 +28,6 @@ public class PersistenciaHibernate implements Persistencia{
 	}
 
 
-	@Override
-	public void toModify(String table, Equipo team, Posicion position, Competicion competition) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void toCancel(String table, Equipo team, Posicion position, Competicion competition) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void toRegisterATeam(Equipo team) throws SQLException {
@@ -73,6 +62,18 @@ public class PersistenciaHibernate implements Persistencia{
 
 	@Override
 	public void infoMessage(JFrame padre, String title, String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toDelete(Equipo team) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toModify(Equipo team, String name) {
 		// TODO Auto-generated method stub
 		
 	}

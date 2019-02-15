@@ -76,6 +76,7 @@ public class Start extends JFrame {
 	 * Create the frame.
 	 */
 	public Start() {
+		setTitle("Gestión de Liga");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 403, 192);
 		contentPane = new JPanel();

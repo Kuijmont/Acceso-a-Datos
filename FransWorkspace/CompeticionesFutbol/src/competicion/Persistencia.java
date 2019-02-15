@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import tablas.Competicion;
 import tablas.Equipo;
+import tablas.Jugador;
 import tablas.Posicion;
 
 public interface Persistencia {
@@ -17,9 +18,7 @@ public interface Persistencia {
 	
 	void toRegisterATeam(Equipo team) throws SQLException;
 
-	void toModify(String table, Equipo team, Posicion position, Competicion competition) throws SQLException;
-
-	void toCancel(String table, Equipo team, Posicion position, Competicion competition) throws SQLException;
+	void toModify(Equipo team, String string);
 
 	ArrayList<Equipo> toListTeams() throws SQLException;
 
@@ -30,4 +29,8 @@ public interface Persistencia {
 	boolean confirmQuestion(JFrame padre, String titulo, String mensaje);
 
 	void infoMessage(JFrame padre, String title, String message);
+
+	void toDelete(Equipo team);
+	
+	void toRegisterAPlayer(Jugador player);
 }

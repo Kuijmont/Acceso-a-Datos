@@ -92,28 +92,12 @@ public class PersistenciaMySQL implements Persistencia {
 		return al;
 	}
 	
-	// Modify 
+	// Modify a Team
 	@Override
-	public void toModify(String table, Equipo team, Posicion position, Competicion competition)
-			throws SQLException {
-		st = cn.createStatement();
-		switch (table) {
-			case "equipo":
-				sql = "update "+table+" set id="+team.getId()+", nombre = '"+team.getNombre()+"'";
-				break;
-			case "posicion":
-				sql = "update "+table+" set id="+position.getId()+", descripcion = '"+
-				position.getDescripcion()+"'";
-				break;
-			case "competiciones":
-				sql = "update "+table+" set id="+competition.getId()+", nombre = '"+
-				competition.getNombre()+"', fechaComienzo="+competition.getFechaComienzo()
-						+ ", fechaFin="+competition.getFechaFin();
-				break;
-			default:
-				break;
-			}
+	public void toModify(Equipo team, String name){
 		try {
+			st = cn.createStatement();
+			sql = "update equipo set nombre = '"+team.getNombre()+"' where nombre ='"+name+"'";
 			st.executeUpdate(sql);
 			JOptionPane.showMessageDialog(null,"Se ha modificado correctamente.","Mensaje", 1);
 			st.close(); // Close the statement
@@ -122,25 +106,12 @@ public class PersistenciaMySQL implements Persistencia {
 		}
 	}
 
-	// Cancel
+	// Delete a Team
 	@Override
-	public void toCancel(String table, Equipo team, Posicion position, Competicion competition)
-			throws SQLException {
-		st = cn.createStatement();
-		switch (table) {
-			case "equipo":
-				sql = "delete from "+table+" where id = "+team.getId();
-				break;
-			case "posicion":
-				sql = "delete from "+table+" where id = "+position.getId();
-				break;
-			case "competiciones":
-				sql = "delete from "+table+" where id = "+competition.getId();
-				break;
-			default:
-				break;
-			}
+	public void toDelete(Equipo team){
 		try {
+			st = cn.createStatement();
+			sql = "delete from equipo where nombre = '"+team.getNombre()+"'";
 			st.executeUpdate(sql);
 			JOptionPane.showMessageDialog(null,"Se ha borrado correctamente.","Mensaje", 1);
 			st.close(); // Close the statement
@@ -188,8 +159,7 @@ public class PersistenciaMySQL implements Persistencia {
 			return false;
 	}
 
-	
-	
+	// Info Message
 	@Override
 	public void infoMessage(JFrame padre, String title, String message) {
 		JOptionPane.showMessageDialog(padre, message, title, 1);
