@@ -23,8 +23,10 @@ import javax.swing.SwingConstants;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
-public class Start extends JFrame {
+public class InitGUI extends JFrame {
 
 	private JPanel contentPane;
 	private static String persistenceType, server, user, password, database, cfg;
@@ -38,11 +40,11 @@ public class Start extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Start frame = new Start();
+					InitGUI frame = new InitGUI();
 					frame.setVisible(true);
 				
 					Properties prop=new Properties();
-					prop.load(new InputStreamReader(Start.class.getResourceAsStream("CFG.INI")));//CFG.INI en el mismo paquete que PrincipalGUI
+					prop.load(new InputStreamReader(InitGUI.class.getResourceAsStream("CFG.INI")));//CFG.INI en el mismo paquete que PrincipalGUI
 					persistenceType=prop.getProperty("tipoPersistencia");
 
 					System.out.println(persistenceType);
@@ -75,7 +77,13 @@ public class Start extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Start() {
+	public InitGUI() {
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				per.desconectBD();
+			}
+		});
 		setTitle("Gestión de Liga");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 403, 192);
@@ -95,13 +103,20 @@ public class Start extends JFrame {
 		itemTeam.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				op = "Equipo";
-				Equipos ven = new Equipos();
+				TeamGUI ven = new TeamGUI();
 				ven.setVisible(true);  
 			}
 		});
 		menuMaintenance.add(itemTeam);
 		
 		JMenuItem itemPositions = new JMenuItem("Posiciones");
+		itemPositions.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				op = "Posición";
+				PositionGUI pos = new PositionGUI();
+				pos.setVisible(true);
+			}
+		});
 		menuMaintenance.add(itemPositions);
 		
 		JMenuItem itemCompetitions = new JMenuItem("Competiciones");
@@ -109,6 +124,19 @@ public class Start extends JFrame {
 		
 		JMenu menuManagement = new JMenu("Gestión de jugadores");
 		menuBar.add(menuManagement);
+		
+		JMenuItem itemJuegadores = new JMenuItem("Juegadores de un Equipo");
+		itemJuegadores.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				op = "Jugadores";
+				PlayerGUI ven = new PlayerGUI();
+				ven.setVisible(true);  
+			}
+		});
+		menuManagement.add(itemJuegadores);
+		
+		JMenuItem itemTraspaso = new JMenuItem("Traspaso de Jugadores");
+		menuManagement.add(itemTraspaso);
 		
 		JMenu menuCompetition = new JMenu("Competición");
 		menuBar.add(menuCompetition);

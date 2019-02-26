@@ -18,7 +18,7 @@ public interface Persistencia {
 	
 	void toRegisterATeam(Equipo team) throws SQLException;
 
-	void toModify(Equipo team, String string);
+	void toModifyATeam(Equipo team, String string);
 
 	ArrayList<Equipo> toListTeams() throws SQLException;
 
@@ -30,7 +30,21 @@ public interface Persistencia {
 
 	void infoMessage(JFrame padre, String title, String message);
 
-	void toDelete(Equipo team);
+	void toDeleteATeam(Equipo team);
 	
 	void toRegisterAPlayer(Jugador player);
+
+	ArrayList<Jugador> listPlayersOfTeam(Equipo e);
+
+	ArrayList<Posicion> listPositions();
+
+	void toRegisterAPosition(Posicion pos);
+
+	void toDeleteAPositon(Posicion pos2);
+
+	void toModifyAPosition(Posicion e, String text);
+
+	boolean toSelectAPosition(String item);
+
+	boolean toSelectAPlayer(String item);
 }

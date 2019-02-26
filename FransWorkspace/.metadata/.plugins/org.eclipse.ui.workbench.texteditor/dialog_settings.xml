@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="buscarCl" key="selection"/>
+		<item value="fillComboBoxTeam" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="fillComboBoxTeam"/>
+			<item value="fillComboBox"/>
 			<item value="buscarCl"/>
 			<item value="buscarC"/>
 			<item value="notificaError"/>

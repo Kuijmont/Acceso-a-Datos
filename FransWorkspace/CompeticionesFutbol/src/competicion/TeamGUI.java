@@ -25,25 +25,24 @@ import javax.swing.JTextField;
 import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 
-public class Equipos extends JFrame {
+public class TeamGUI extends JFrame {
 
 	private JPanel contentPane;
-	Start principal;
-	static Persistencia per = Start.per;
+	InitGUI principal;
+	static Persistencia per = InitGUI.per;
 	private static JTextField textTeam;
 	private static JComboBox<String> comboBoxTeam;
 	private JButton btnConsultarTeam;
 	private JButton btnModDelet;
-	private JLabel lblDorsal;
-	private JTextField textFieldDorsal;
-
+	private JButton btnVolverALos;
+	private ArrayList<Equipo> teamList;
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				Equipos frame = new Equipos();
+				TeamGUI frame = new TeamGUI();
 				frame.setVisible(true);
 			}
 		});
@@ -53,10 +52,10 @@ public class Equipos extends JFrame {
 	/**
 	 * Create the frame. 
 	 */
-	public Equipos() {
+	public TeamGUI() {
 		setTitle("Mantenimiento de equipos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 361);
+		setBounds(100, 100, 450, 254);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -83,86 +82,78 @@ public class Equipos extends JFrame {
 		contentPane.add(btnConsultarTeam);
 		
 		textTeam = new JTextField();
-		textTeam.setBounds(101, 91, 124, 19);
+		textTeam.setEnabled(false);
+		textTeam.setBounds(101, 116, 124, 19);
 		contentPane.add(textTeam);
 		textTeam.setColumns(10);
 		
 		JLabel label = new JLabel("Equipo:");
-		label.setBounds(29, 93, 70, 15);
+		label.setBounds(29, 118, 70, 15);
 		contentPane.add(label);
 		
 		btnModDelet = new JButton("Modificar/Eliminar");
+		btnModDelet.setEnabled(false);
 		btnModDelet.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				modDeletButton();
 			}
 		});
-		btnModDelet.setBounds(242, 88, 166, 25);
+		btnModDelet.setBounds(242, 113, 166, 25);
 		contentPane.add(btnModDelet);
 		
-		JLabel lblJugador = new JLabel("Jugador:");
-		lblJugador.setBounds(29, 187, 70, 15);
-		contentPane.add(lblJugador);
-		
-		JComboBox comboBoxPlayer = new JComboBox();
-		comboBoxPlayer.setEditable(true);
-		comboBoxPlayer.setBounds(101, 182, 152, 24);
-		contentPane.add(comboBoxPlayer);
-		
-		JButton btnConsultarPlayer = new JButton("Consultar");
-		btnConsultarPlayer.setBounds(291, 182, 117, 25);
-		contentPane.add(btnConsultarPlayer);
-		
-		lblDorsal = new JLabel("Dorsal:");
-		lblDorsal.setBounds(29, 229, 70, 15);
-		contentPane.add(lblDorsal);
-		
-		textFieldDorsal = new JTextField();
-		textFieldDorsal.setBounds(101, 227, 70, 19);
-		contentPane.add(textFieldDorsal);
-		textFieldDorsal.setColumns(10);
-		
-		JLabel lblPosicin = new JLabel("Posición:");
-		lblPosicin.setBounds(187, 227, 78, 15);
-		contentPane.add(lblPosicin);
-		
-		JComboBox comboBoxPosition = new JComboBox();
-		comboBoxPosition.setBounds(267, 219, 143, 24);
-		contentPane.add(comboBoxPosition);
-		
-		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(12, 265, 424, 2);
-		contentPane.add(separator_1);
-		
-		JSeparator separator = new JSeparator();
-		separator.setBounds(12, 159, 424, 2);
-		contentPane.add(separator);
-		
-		JButton btnVolverALos = new JButton("Volver a los equipos");
+		btnVolverALos = new JButton("Volver a los equipos");
+		btnVolverALos.setEnabled(false);
 		btnVolverALos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				comboBoxTeam.setEnabled(true);
 				btnConsultarTeam.setEnabled(true);
+				comboBoxTeam.setSelectedIndex(0);
 				comboBoxTeam.grabFocus();
+				textTeam.setText(null);
+				btnVolverALos.setEnabled(false);
+				btnModDelet.setEnabled(false);
+				textTeam.setEnabled(false);
 			}
 		});
-		btnVolverALos.setBounds(29, 122, 379, 25);
+		btnVolverALos.setBounds(29, 175, 379, 25);
 		contentPane.add(btnVolverALos);
+		
+		JLabel lblDejaEnBlanco = new JLabel("Deja en blanco para eliminar el equipo");
+		lblDejaEnBlanco.setBounds(75, 89, 311, 15);
+		contentPane.add(lblDejaEnBlanco);
 	}
 
 	protected void modDeletButton() {
 		String team = textTeam.getText();
 		Equipo team2 = new Equipo(comboBoxTeam.getSelectedItem().toString());
 		if(team.equals("")) {
-			per.toDelete(team2);
+			per.toDeleteATeam(team2);
 			comboBoxTeam.removeItem(comboBoxTeam.getSelectedItem().toString());
-			comboBoxTeam.setSelectedIndex(0);
-			comboBoxTeam.grabFocus();
+			btnVolverALos.grabFocus();
+			btnModDelet.setEnabled(false);
+			textTeam.setEnabled(false);
+			textTeam.setText(null);
+			btnVolverALos.setEnabled(true);
+			btnVolverALos.grabFocus();
 		}else {
-			per.toModify(new Equipo(team),comboBoxTeam.getSelectedItem().toString());
+			Equipo e = null;
+			for (int i = 0; i < teamList.size(); i++) {
+				
+				if(comboBoxTeam.getSelectedItem().toString().equals(teamList.get(i).getNombre())) {
+					 e = new Equipo(teamList.get(i).getNombre());
+					 System.out.println(e.getNombre());
+					 e.setId(teamList.get(i).getId());
+					 System.out.println(teamList.get(i).getId());
+				}
+			}
+			per.toModifyATeam(e,textTeam.getText());
 			comboBoxTeam.removeAllItems();
 			fillComboBox();
-			
+			btnModDelet.setEnabled(false);
+			btnVolverALos.setEnabled(true);
+			textTeam.setEnabled(false);
+			textTeam.setText(null);
+			btnVolverALos.grabFocus();
 		}
 	}
 
@@ -173,21 +164,27 @@ public class Equipos extends JFrame {
 		 try {
 			if(item != "") { 
 				if(per.toSelectATeam(item)) {
+					textTeam.setEnabled(true);
 					textTeam.setText(item);
 					textTeam.grabFocus();
 					comboBoxTeam.setEnabled(false);
 					btnConsultarTeam.setEnabled(false);
+					btnModDelet.setEnabled(true);
+					btnVolverALos.setEnabled(true);
 				}else {
 					boolean create =per.confirmQuestion(principal, "Crear el equipo",
 							"El equipo seleccionado no existe.\n ¿Quieres crearlo?");
 					if(create) {
 						Equipo team = new Equipo(comboBoxTeam.getSelectedItem().toString());
 						per.toRegisterATeam(team);
+						textTeam.setEnabled(true);
 						textTeam.setText(item);
 						textTeam.grabFocus();
 						comboBoxTeam.setEnabled(false);
 						btnConsultarTeam.setEnabled(false);
 						comboBoxTeam.addItem(item);
+						btnModDelet.setEnabled(true);
+						btnVolverALos.setEnabled(true);
 					}else {
 						per.infoMessage(principal, "Cancelar", "Se ha cancelado la creación.");
 						comboBoxTeam.setSelectedIndex(0);
@@ -206,9 +203,9 @@ public class Equipos extends JFrame {
 
 	private  void fillComboBox() {
 		try {
-			ArrayList<Equipo> team = per.toListTeams();
-			for (int i = 0; i < team.size(); i++) {
-				comboBoxTeam.addItem(team.get(i).getNombre());
+			teamList = per.toListTeams();
+			for (int i = 0; i < teamList.size(); i++) {
+				comboBoxTeam.addItem(teamList.get(i).getNombre());
 			}
 		} catch (SQLException e1) {
 			per.notifyError(null, "Error", e1, "Error al listar equipos");

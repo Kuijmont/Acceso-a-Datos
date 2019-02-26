@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.xml.xpath.XPathConstants"/>
-<fullyQualifiedTypeName name="org.w3c.dom.NodeList"/>
-<fullyQualifiedTypeName name="org.w3c.dom.Node"/>
-<fullyQualifiedTypeName name="org.xml.sax.helpers.DefaultHandler"/>
-<fullyQualifiedTypeName name="org.xml.sax.SAXException"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
-<fullyQualifiedTypeName name="org.xml.sax.XMLReader"/>
 <fullyQualifiedTypeName name="org.xml.sax.helpers.XMLReaderFactory"/>
 <fullyQualifiedTypeName name="ej2.VerLineaLibroSAX"/>
 <fullyQualifiedTypeName name="org.xml.sax.InputSource"/>
@@ -46,7 +39,6 @@
 <fullyQualifiedTypeName name="java.util.Set"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
 <fullyQualifiedTypeName name="javax.management.remote.NotificationResult"/>
-<fullyQualifiedTypeName name="tablas.Posicion"/>
 <fullyQualifiedTypeName name="tablas.Competicion"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
@@ -54,10 +46,18 @@
 <fullyQualifiedTypeName name="java.lang.Override"/>
 <fullyQualifiedTypeName name="competicion.Equipos"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="competicion.Persistencia"/>
 <fullyQualifiedTypeName name="competicion.Start"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="antlr.collections.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.hibernate.mapping.List"/>
 <fullyQualifiedTypeName name="tablas.Equipo"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="tablas.Jugador"/>
+<fullyQualifiedTypeName name="tablas.Posicion"/>
+<fullyQualifiedTypeName name="competicion.PlayerGUI"/>
 </qualifiedTypeNameHistroy>

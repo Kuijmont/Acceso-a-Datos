@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import tablas.Competicion;
 import tablas.Equipo;
+import tablas.Jugador;
 import tablas.Posicion;
 
 public class PersistenciaMySQL implements Persistencia {
@@ -54,7 +55,7 @@ public class PersistenciaMySQL implements Persistencia {
 	public void desconectBD() {
 		try {
 			cn.close();
-			JOptionPane.showMessageDialog(null, "Desconectado con éxito.", "Mensaje", 1);
+			infoMessage(null, "Desconexión", "Se ha desconectado correctamente.");
 		} catch (SQLException e) {
 			notifyError(null, "ERROR", e, "Error en la desconexión.");
 		}
@@ -94,7 +95,7 @@ public class PersistenciaMySQL implements Persistencia {
 	
 	// Modify a Team
 	@Override
-	public void toModify(Equipo team, String name){
+	public void toModifyATeam(Equipo team, String name){
 		try {
 			st = cn.createStatement();
 			sql = "update equipo set nombre = '"+team.getNombre()+"' where nombre ='"+name+"'";
@@ -108,7 +109,7 @@ public class PersistenciaMySQL implements Persistencia {
 
 	// Delete a Team
 	@Override
-	public void toDelete(Equipo team){
+	public void toDeleteATeam(Equipo team){
 		try {
 			st = cn.createStatement();
 			sql = "delete from equipo where nombre = '"+team.getNombre()+"'";
@@ -164,6 +165,48 @@ public class PersistenciaMySQL implements Persistencia {
 	public void infoMessage(JFrame padre, String title, String message) {
 		JOptionPane.showMessageDialog(padre, message, title, 1);
 		
+	}
+
+	@Override
+	public void toRegisterAPlayer(Jugador player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<Jugador> listPlayersOfTeam(Equipo e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Posicion> listPositions() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void toRegisterAPosition(Posicion pos) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toDeleteAPositon(Posicion pos2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void toModifyAPosition(Posicion e, String text) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean toSelectAPosition(String item) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	
